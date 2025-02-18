@@ -1,8 +1,6 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import useProducts from "@/hooks/useProducts";
 import React from "react";
 import {
   Card,
@@ -12,7 +10,7 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { SearchForm } from "@/components/searchbar";
 
 const products = [
   {
@@ -21,7 +19,67 @@ const products = [
     description: "제 친구 맥북 프로인데 좀 구린 거 같아서 제가 팔려구요",
     location: "성남시 중원구",
     image:
-      "https://macfinder.co.uk/wp-content/uploads/2022/12/img-MacBook-Pro-Retina-14-Inch-21256.jpg",
+      "https://image.zdnet.co.kr/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg",
+    state: "sell",
+    price: "140,000",
+  },
+  {
+    id: 2,
+    name: "제 친구 현성이 맥북 팔아요",
+    description: "제 친구 맥북 프로인데 좀 구린 거 같아서 제가 팔려구요",
+    location: "성남시 중원구",
+    image:
+      "https://image.zdnet.co.kr/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg",
+    state: "sell",
+    price: "140,000",
+  },
+  {
+    id: 3,
+    name: "제 친구 현성이 맥북 팔아요",
+    description: "제 친구 맥북 프로인데 좀 구린 거 같아서 제가 팔려구요",
+    location: "성남시 중원구",
+    image:
+      "https://image.zdnet.co.kr/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg",
+    state: "sell",
+    price: "140,000",
+  },
+  {
+    id: 4,
+    name: "제 친구 현성이 맥북 팔아요",
+    description: "제 친구 맥북 프로인데 좀 구린 거 같아서 제가 팔려구요",
+    location: "성남시 중원구",
+    image:
+      "https://image.zdnet.co.kr/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg",
+    state: "sell",
+    price: "140,000",
+  },
+  {
+    id: 5,
+    name: "제 친구 현성이 맥북 팔아요",
+    description: "제 친구 맥북 프로인데 좀 구린 거 같아서 제가 팔려구요",
+    location: "성남시 중원구",
+    image:
+      "https://image.zdnet.co.kr/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg",
+    state: "sell",
+    price: "140,000",
+  },
+  {
+    id: 6,
+    name: "제 친구 현성이 맥북 팔아요",
+    description: "제 친구 맥북 프로인데 좀 구린 거 같아서 제가 팔려구요",
+    location: "성남시 중원구",
+    image:
+      "https://image.zdnet.co.kr/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg",
+    state: "sell",
+    price: "140,000",
+  },
+  {
+    id: 7,
+    name: "제 친구 현성이 맥북 팔아요",
+    description: "제 친구 맥북 프로인데 좀 구린 거 같아서 제가 팔려구요",
+    location: "성남시 중원구",
+    image:
+      "https://image.zdnet.co.kr/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg",
     state: "sell",
     price: "140,000",
   },
@@ -33,8 +91,9 @@ export default function Home() {
   // const { data: products } = useProducts();
 
   return (
-    <main className="flex min-h-screen flex-col items-center py-10">
-      <div className="flex flex-wrap gap-10 w-3/5">
+    <main className="flex min-h-screen flex-col items-center py-8">
+      <div className="flex flex-wrap gap-4 w-[980px]">
+        <SearchForm />
         {products &&
           products.map((product) => {
             return (
@@ -51,13 +110,13 @@ export default function Home() {
                 >
                   <CardHeader>
                     <div className="grid w-full items-center gap-4 rounded-md">
-                      <div className="flex flex-col space-y-1.5 rounded-md w-[230px] overflow-hidden">
+                      <div className="rounded-md overflow-hidden">
                         <Image
                           src={product.image}
                           width={300}
                           height={300}
-                          alt={""}
-                          className=" group-hover:scale-105 transition-transform ease-in-out duration-300"
+                          alt=""
+                          className="group-hover:scale-105 transition-transform ease-in-out duration-300 object-cover w-[230px] h-[230px]"
                         />
                       </div>
                     </div>

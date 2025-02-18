@@ -6,9 +6,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'macfinder.co.uk',
+        hostname: 'image.zdnet.co.kr',
         port: '',
-        pathname: '/wp-content/uploads/2022/12/img-MacBook-Pro-Retina-14-Inch-21256.jpg',
+        pathname: '/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg',
         search: '',
       },
     ],
