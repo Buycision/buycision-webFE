@@ -1,8 +1,4 @@
 "use client";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import useProduct from "@/hooks/useProduct";
-import Image from "next/image";
 import { useParams } from "next/navigation";
 
 const products = [
@@ -11,68 +7,13 @@ const products = [
     name: "제 친구 현성이 맥북 팔아요",
     description: "제 친구 맥북 프로인데 좀 구린 거 같아서 제가 팔려구요",
     location: "성남시 중원구",
-    image:
+    image: [
       "https://image.zdnet.co.kr/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg",
-    state: "sell",
-    price: "140,000",
-  },
-  {
-    id: 2,
-    name: "제 친구 현성이 맥북 팔아요",
-    description: "제 친구 맥북 프로인데 좀 구린 거 같아서 제가 팔려구요",
-    location: "성남시 중원구",
-    image:
       "https://image.zdnet.co.kr/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg",
-    state: "sell",
-    price: "140,000",
-  },
-  {
-    id: 3,
-    name: "제 친구 현성이 맥북 팔아요",
-    description: "제 친구 맥북 프로인데 좀 구린 거 같아서 제가 팔려구요",
-    location: "성남시 중원구",
-    image:
       "https://image.zdnet.co.kr/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg",
-    state: "sell",
-    price: "140,000",
-  },
-  {
-    id: 4,
-    name: "제 친구 현성이 맥북 팔아요",
-    description: "제 친구 맥북 프로인데 좀 구린 거 같아서 제가 팔려구요",
-    location: "성남시 중원구",
-    image:
       "https://image.zdnet.co.kr/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg",
-    state: "sell",
-    price: "140,000",
-  },
-  {
-    id: 5,
-    name: "제 친구 현성이 맥북 팔아요",
-    description: "제 친구 맥북 프로인데 좀 구린 거 같아서 제가 팔려구요",
-    location: "성남시 중원구",
-    image:
-      "https://image.zdnet.co.kr/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg",
-    state: "sell",
-    price: "140,000",
-  },
-  {
-    id: 6,
-    name: "제 친구 현성이 맥북 팔아요",
-    description: "제 친구 맥북 프로인데 좀 구린 거 같아서 제가 팔려구요",
-    location: "성남시 중원구",
-    image:
-      "https://image.zdnet.co.kr/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg",
-    state: "sell",
-    price: "140,000",
-  },
-  {
-    id: 7,
-    name: "제 친구 현성이 맥북 팔아요",
-    description: "제 친구 맥북 프로인데 좀 구린 거 같아서 제가 팔려구요",
-    location: "성남시 중원구",
-    image:
-      "https://image.zdnet.co.kr/2020/07/13/2618bd9961df278b0a05c912da1ccb20.jpg",
+    ],
+
     state: "sell",
     price: "140,000",
   },
@@ -80,23 +21,21 @@ const products = [
 
 export default function Home() {
   const params = useParams();
-  const { id } = params as { id: string };
+  const id = Number(params);
   //   const { data: product } = useProduct(id);
-  const product = products;
+  const product = products.filter((product) => {
+    return product.id == id;
+  });
 
   return (
     <main className="flex min-h-screen flex-col items-center p-10">
       {product &&
-        products.map((product) => {
+        product.map((product) => {
           return (
             <div
               key={product.id}
               className="z-10 w-full max-w-md font-mono text-white space-y-5"
             >
-              <Image src={product.image} width={500} height={500} alt={""} />
-              <Badge key={product.id} variant="secondary" className="text-2xl">
-                {product.state}
-              </Badge>
               <h1 className="text-2xl font-extrabold">{product.name}</h1>
               <h1>{product.description}</h1>
 
